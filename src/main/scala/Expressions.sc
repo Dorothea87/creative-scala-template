@@ -33,3 +33,13 @@ import doodle.java2d.*
 
 1 + 2 + 3
 1.+(2).+(3)
+
+// Image.circle(100).draw()
+// Image.circle(10).draw()
+// Image.circle(1).draw()
+// Image.rectangle(100, 50).draw()
+// Image.triangle(100, 50).draw()
+
+// (Image.circle(100).beside(Image.rectangle(100, 200))).draw()
+Image.circle(100).above(Image.circle(50))
+// Image.circle(100).on(Image.circle(50))
