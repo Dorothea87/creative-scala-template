@@ -15,26 +15,38 @@ object Example {
   val image =
     Image
       .circle(100)
-      .fillColor(Color.red)
-      .on(Image.circle(200).fillColor(Color.aquamarine))
-      .on(Image.circle(300).fillColor(Color.steelBlue))
+      .fillColor(Color.deepPink)
+      .on(Image.circle(200).fillColor(Color.hotpink))
+      .on(Image.circle(300).fillColor(Color.peachPuff))
 
   val animation =
     Reactor
       .init(0.degrees)
-      .withOnTick(a => a + 1.degrees)
-      .withStop(a => a > 360.degrees)
-      .withTickRate(20.millis)
+      .withOnTick(a => a + 4.degrees)
+      //.withStop(a => a > 360.degrees)
+      .withTickRate(25.millis)
       .withRender { a =>
-        val location = Point(200, a)
-        val planet = Image.circle(40.0).noStroke.fillColor(Color.seaGreen)
+        val location = Point(180, a)
+        val planet = Image.circle(40.0).noStroke.fillColor(Color.teal)
         val moon = Image
-          .circle(10.0)
+          .circle(28.0)
           .noStroke
-          .fillColor(Color.slateGray)
-          .at(Point(60, a * 5))
+          .fillColor(Color.deepSkyBlue)
+          .at(Point(80, a * 5))
+        val moon2 = Image
+          .circle(20.0)
+          .noStroke
+          .fillColor(Color.greenYellow)
+          .at(Point(30, a * 1))
+        val square = Image
+          .square(45.0)
+          .strokeColor(Color.black)
+          .fillColor(Color.yellow)
+          .at(20, a *3)
 
         moon.on(planet).at(location)
+        moon2.on(moon).above(planet).at(location)
+        square.on(planet).below(moon2).on(moon).at(location)
       }
 
   val frame = Frame.default.withSize(600, 600).withCenterAtOrigin
@@ -43,6 +55,6 @@ object Example {
     image.draw()
 
     // Comment out the above and uncomment the below to display the animation
-    // animation.run(frame)
+    animation.run(frame)
   }
 }
