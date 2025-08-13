@@ -1,6 +1,7 @@
 import cats.effect.unsafe.implicits.global
 import doodle.core.*
 import doodle.image.*
+import doodle.image.Image.Elements.Circle
 import doodle.syntax.all.*
 import doodle.image.syntax.all.*
 import doodle.java2d.*
@@ -40,6 +41,7 @@ import doodle.java2d.*
 // Image.rectangle(100, 50).draw()
 // Image.triangle(100, 50).draw()
 
-// (Image.circle(100).beside(Image.rectangle(100, 200))).draw()
-Image.circle(100).above(Image.circle(50))
-// Image.circle(100).on(Image.circle(50))
+//(Image.circle(100).beside(Image.rectangle(100, 200))).draw()
+// Image.circle(100).above(Image.circle(50)).draw()
+//Image.circle(100).on(Image.circle(50)).draw()
+Image.circle(120).on(Image.circle(40).beside(Image.circle(40)).beside(Image.circle(40))).draw()
